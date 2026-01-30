@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Analytics } from "@vercel/analytics/next"
 import { 
   MousePointer2, 
   HelpCircle, 
@@ -272,7 +271,6 @@ function App() {
           </div>
         </footer>
       </div>
-      <Analytics />
     </div>
   );
 }
