@@ -215,7 +215,7 @@ function App() {
           <div className="max-w-4xl mx-auto text-center">
 
             {/* Title */}
-            <h1 className="text-5xl md:text-6xl font-thin text-white py-2 mb-6 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-thin text-white py-2 sm:pt-12 mb-6 animate-fade-in-up">
               マウスカーソル
               <br className="sm:hidden" />チェッカー
             </h1>
