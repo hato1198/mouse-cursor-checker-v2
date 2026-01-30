@@ -15,7 +15,6 @@ import {
   Pointer,
   Copy,
   Check,
-  Sparkles,
   Code2
 } from 'lucide-react';
 import { toast } from 'sonner';
