@@ -30,18 +30,18 @@ interface CursorType {
 
 const cursorTypes: CursorType[] = [
   { id: 'default', name: '通常の選択', cssValue: 'default', icon: <MousePointer2 className="w-6 h-6" />, description: '標準的なマウスカーソル' },
-  { id: 'pointer', name: 'リンクの選択', cssValue: 'pointer', icon: <Pointer className="w-6 h-6" />, description: 'クリック可能な要素' },
-  { id: 'text', name: 'テキスト選択', cssValue: 'text', icon: <Type className="w-6 h-6" />, description: 'テキスト編集可能' },
-  { id: 'move', name: '移動', cssValue: 'move', icon: <Move className="w-6 h-6" />, description: '要素の移動' },
-  { id: 'crosshair', name: '領域選択', cssValue: 'crosshair', icon: <Crosshair className="w-6 h-6" />, description: '精密な選択' },
-  { id: 'help', name: 'ヘルプの選択', cssValue: 'help', icon: <HelpCircle className="w-6 h-6" />, description: 'ヘルプ情報あり' },
-  { id: 'progress', name: 'バックグラウンド作業中', cssValue: 'progress', icon: <Loader2 className="w-6 h-6" />, description: 'バックグラウンド処理中' },
-  { id: 'wait', name: '待ち状態', cssValue: 'wait', icon: <Clock className="w-6 h-6" />, description: '処理待ち' },
-  { id: 'not-allowed', name: '利用不可', cssValue: 'not-allowed', icon: <Ban className="w-6 h-6" />, description: '操作不可' },
-  { id: 'ns-resize', name: '上下に拡大/縮小', cssValue: 'ns-resize', icon: <ArrowUpDown className="w-6 h-6" />, description: '垂直リサイズ' },
-  { id: 'ew-resize', name: '左右に拡大/縮小', cssValue: 'ew-resize', icon: <ArrowLeftRight className="w-6 h-6" />, description: '水平リサイズ' },
-  { id: 'nesw-resize', name: '斜めに拡大/縮小 1', cssValue: 'nesw-resize', icon: <MoveDiagonal className="w-6 h-6" />, description: '斜めリサイズ（NE-SW）' },
-  { id: 'nwse-resize', name: '斜めに拡大/縮小 2', cssValue: 'nwse-resize', icon: <MoveDiagonal2 className="w-6 h-6" />, description: '斜めリサイズ（NW-SE）' },
+  { id: 'pointer', name: 'リンクの選択', cssValue: 'pointer', icon: <Pointer className="w-6 h-6" />, description: 'クリックできることを示す' },
+  { id: 'text', name: 'テキスト選択', cssValue: 'text', icon: <Type className="w-6 h-6" />, description: 'テキストを選択できることを示す' },
+  { id: 'move', name: '移動', cssValue: 'move', icon: <Move className="w-6 h-6" />, description: '移動できることを示す' },
+  { id: 'crosshair', name: '領域選択', cssValue: 'crosshair', icon: <Crosshair className="w-6 h-6" />, description: '精密な選択ができるようにする' },
+  { id: 'help', name: 'ヘルプの選択', cssValue: 'help', icon: <HelpCircle className="w-6 h-6" />, description: 'ヘルプ情報があることを示す' },
+  { id: 'progress', name: 'バックグラウンドで作業中', cssValue: 'progress', icon: <Loader2 className="w-6 h-6" />, description: '処理中だが操作できることを示す' },
+  { id: 'wait', name: '待ち状態', cssValue: 'wait', icon: <Clock className="w-6 h-6" />, description: '処理待ちで操作できないことを示す' },
+  { id: 'not-allowed', name: '利用不可', cssValue: 'not-allowed', icon: <Ban className="w-6 h-6" />, description: '操作できないことを示す' },
+  { id: 'ns-resize', name: '上下に拡大/縮小', cssValue: 'ns-resize', icon: <ArrowUpDown className="w-6 h-6" />, description: '垂直にリサイズできることを示す' },
+  { id: 'ew-resize', name: '左右に拡大/縮小', cssValue: 'ew-resize', icon: <ArrowLeftRight className="w-6 h-6" />, description: '水平にリサイズできることを示す' },
+  { id: 'nesw-resize', name: '斜めに拡大/縮小 1', cssValue: 'nesw-resize', icon: <MoveDiagonal className="w-6 h-6" />, description: '右上・左下にリサイズできることを示す' },
+  { id: 'nwse-resize', name: '斜めに拡大/縮小 2', cssValue: 'nwse-resize', icon: <MoveDiagonal2 className="w-6 h-6" />, description: '左上・右下にリサイズできることを示す' },
 ];
 
 function CursorCard({ cursor }: { cursor: CursorType }) {
@@ -75,6 +75,7 @@ function CursorCard({ cursor }: { cursor: CursorType }) {
     setCopied(true);
     toast.success('CSSコードをコピーしました！', {
       description: `cursor: ${cursor.cssValue};`,
+      descriptionClassName: "!text-white/60",
     });
     setTimeout(() => setCopied(false), 2000);
   }, [cursor.cssValue]);
@@ -120,7 +121,7 @@ function CursorCard({ cursor }: { cursor: CursorType }) {
           <h3 className="text-lg font-medium text-white/90 group-hover:text-white transition-colors">
             {cursor.name}
           </h3>
-          <p className="text-sm text-white/40 mt-1 group-hover:text-white/60 transition-colors">
+          <p className="text-xs text-white/40 mt-1 group-hover:text-white/60 transition-colors">
             {cursor.description}
           </p>
         </div>
@@ -213,22 +214,15 @@ function App() {
         {/* Header */}
         <header className="pt-16 pb-12 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-sm mb-8 animate-fade-in">
-              <Sparkles className="w-4 h-4" />
-              <span>13種類のカーソルを確認</span>
-            </div>
 
             {/* Title */}
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-thin text-white py-2 mb-6 animate-fade-in-up">
               マウスカーソル
-              <span className="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                チェッカー
-              </span>
+              <br className="sm:hidden" />チェッカー
             </h1>
 
             {/* Description */}
-            <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <p className="text-lg text-white/60 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               マウスカーソルの見た目とホットスポットをWEB上で簡単に確認できるツールです。
               <br className="hidden md:block" />
               各カードにマウスをかざして、カーソルの変化を確認してください。
@@ -238,15 +232,15 @@ function App() {
             <div className="flex flex-wrap justify-center gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white/50 text-sm">
                 <div className="w-2 h-2 rounded-full bg-cyan-400" />
-                <span>ホットスポット表示</span>
+                <span>13種類のカーソルを確認</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white/50 text-sm">
                 <div className="w-2 h-2 rounded-full bg-purple-400" />
-                <span>CSSコードコピー</span>
+                <span>ホットスポットを表示</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white/50 text-sm">
                 <div className="w-2 h-2 rounded-full bg-blue-400" />
-                <span>リアルタイムプレビュー</span>
+                <span>CSSコードをコピー</span>
               </div>
             </div>
           </div>
@@ -270,10 +264,10 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="py-8 px-4 border-t border-white/5">
+        <footer className="py-8 px-4 border-t border-white/5 bg-black/30">
           <div className="max-w-6xl mx-auto text-center">
-            <p className="text-white/30 text-sm">
-              マウスカーソルチェッカー - 設定変更の確認に便利な無料ツール
+            <p className="text-white/40 text-sm">
+              © {new Date().getFullYear()} Hato. All rights reserved.
             </p>
           </div>
         </footer>
