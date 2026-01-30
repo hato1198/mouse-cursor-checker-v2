@@ -224,7 +224,7 @@ function App() {
             <p className="text-lg text-white/60 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               マウスカーソルの見た目とホットスポットをWEB上で簡単に確認できるツールです。
               <br className="hidden md:block" />
-              各カードにマウスをかざして、カーソルの変化を確認してください。
+              各カードにマウスをかざして、カーソルのデザインを確認してください。
             </p>
 
             {/* Features */}
