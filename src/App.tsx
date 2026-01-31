@@ -117,7 +117,7 @@ function CursorCard({ cursor }: { cursor: CursorType }) {
 
         {/* Body */}
         <div className="mt-4">
-          <h3 className="text-lg font-medium text-white/90 group-hover:text-white transition-colors">
+          <h3 className="text-lg text-white/90 group-hover:text-white transition-colors">
             {cursor.name}
           </h3>
           <p className="text-xs text-white/40 mt-1 group-hover:text-white/60 transition-colors">
@@ -215,7 +215,7 @@ function App() {
           <div className="max-w-4xl mx-auto text-center">
 
             {/* Title */}
-            <h1 className="text-5xl md:text-6xl font-thin text-white py-2 sm:pt-12 mb-6 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-extralight text-white py-2 sm:pt-12 mb-6 animate-fade-in-up">
               マウスカーソル
               <br className="sm:hidden" />チェッカー
             </h1>
@@ -263,7 +263,7 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="py-8 px-4 border-t border-white/5 bg-black/30">
+        <footer className="py-8 px-4 border-t border-white/5 bg-black/20">
           <div className="max-w-6xl mx-auto text-center">
             <p className="text-white/40 text-sm">
               © {new Date().getFullYear()} Hato. All rights reserved.
