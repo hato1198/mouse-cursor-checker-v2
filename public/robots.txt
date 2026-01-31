@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: https://mouse-cursor-checker.vercel.app/sitemap.xml
