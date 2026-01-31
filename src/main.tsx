@@ -4,6 +4,12 @@ import { Toaster } from 'sonner'
 import './index.css'
 import App from './App.tsx'
 
+import { css as notoSans } from './assets/fonts/NotoSansJP-Variable.ttf?subsets'
+import { css as jetbrains } from './assets/fonts/JetBrainsMono-Variable.ttf?subsets'
+
+document.documentElement.style.setProperty('--font-sans', notoSans.family ?? null);
+document.documentElement.style.setProperty('--font-mono', jetbrains.family ?? null);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
