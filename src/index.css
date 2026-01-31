@@ -161,7 +161,7 @@ body {
 }
 
 .animate-fade-in-up {
-  opacity: 0;
+  opacity: 0.01;
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
